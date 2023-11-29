@@ -51,11 +51,11 @@ const Login = () => {
 
                 <form onSubmit={IniciarSesion} className="max-w-md w-full">
                     <div className="mb-6 relative">
-                        <label htmlFor="email" className="block text-lg font-medium text-gray-700">
-                            Email
+                        <label htmlFor="dui" className="block text-lg font-medium text-gray-700">
+                            DUI
                         </label>
                         <input
-                            id="email"
+                            id="dui"
                             type="text"
                             name="username"
                             className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50 text-lg"  // Ajusta el tamaño de la fuente
