@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 const citaMedicaSchema = new mongoose.Schema({
   // En MongoDB, _id se genera automáticamente y puede usarse como PK
-  dui_paciente: {
+  id_paciente: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Paciente',
     required: true // FK a la colección de Pacientes
@@ -40,6 +40,26 @@ const citaMedicaSchema = new mongoose.Schema({
   oxigeno: {
     type: Number,
     max: 999 // INT(3), opcional
+  },
+  sintomas: {
+    type: String,
+    required: true,
+    maxlength: 300 // VARCHAR(300)
+  },
+  diagnostico: {
+    type: String,
+    required: true,
+    maxlength: 300 // VARCHAR(300)
+  },
+  tratamiento: {
+    type: String,
+    required: true,
+    maxlength: 300 // VARCHAR(300)
+  },
+
+  owner: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "Paciente",
   }
   // ... más campos según sea necesario ...
 });

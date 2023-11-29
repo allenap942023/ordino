@@ -7,6 +7,7 @@ const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 
 const Paciente = require('../models/Paciente');
+const CitaMedica = require("../models/CitaMedica");
 
 const JWT_SECRET = process.env.JWT_SECRET || '12345'; 
 
@@ -84,6 +85,32 @@ router.get('/pacientes/:id', verificarToken, async (req, res) => {
         var {id} = req.params
         // Obtener todos los pacientes. Puedes decidir qué campos excluir en la consulta.
         const pacientes = await Paciente.findOne({_id:id}); // Excluye la contraseña en el resultado
+        res.json(pacientes);
+    } catch (error) {
+        res.status(500).json({mensaje:'Error en el servidor.'});
+    }
+});
+
+
+// Leer un usuario específico (GET)
+router.get('/pacientes/:id/historial', verificarToken, async (req, res) => {
+    // try {
+        var {id} = req.params
+        // Obtener todos los pacientes. Puedes decidir qué campos excluir en la consulta.
+        const pacientes = await Paciente.findOne({_id:id}).populate({ path: 'citas', select: '_id fecha_cita', model: CitaMedica }).exec(); // Excluye la contraseña en el resultado
+          res.json(pacientes);
+    // } catch (error) {
+    //     res.status(500).json({mensaje:'Error en el servidor.',error:error});
+    // }
+});
+
+
+// Leer un usuario específico (GET)
+router.get('/pacientes/:id/citas', verificarToken, async (req, res) => {
+    try {
+        var {id} = req.params
+        // Obtener todos los pacientes. Puedes decidir qué campos excluir en la consulta.
+        const pacientes = await Paciente.findOne({_id:id}).populate('citas'); // Excluye la contraseña en el resultado
         res.json(pacientes);
     } catch (error) {
         res.status(500).json({mensaje:'Error en el servidor.'});

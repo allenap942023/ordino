@@ -45,20 +45,17 @@ const pacienteSchema = new mongoose.Schema({
     required: true,
     maxlength: 300 // VARCHAR(300)
   },
-  contacto_: {
+  contacto_emergencia: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "ContactoEmergencia",
   },
 
-  citasMedica: [{
+  citas: [{
     type: mongoose.Schema.Types.ObjectId,
     ref: "CitaMedica",
   }],
 
-  historialMedico: [{
-    type: mongoose.Schema.Types.ObjectId,
-    ref: "HistorialMedico",
-  }],
+ 
   // ... más campos según sea necesario ...
 });
 
