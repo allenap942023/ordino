@@ -68,12 +68,13 @@ router.post('/pacientes',verificarToken, async (req,res)=>{
 router.get('/pacientes', verificarToken, async (req, res) => {
     try {
         // Obtener todos los pacientes. Puedes decidir qué campos excluir en la consulta.
-
-        var {nombre} =req.body; 
-        const pacientes = await Paciente.find({}); 
+       
+        var {nombre} =req.query; 
+        var regex = new RegExp(`${nombre}`,'i');
+        const pacientes = await Paciente.find({ nombre: regex}); 
         res.json(pacientes);
     } catch (error) {
-        res.status(500).json({mensaje:'Error en el servidor.'});
+        res.status(500).json({mensaje:'Error en el servidor.',error:error});
     }
 });
 
@@ -82,7 +83,7 @@ router.get('/pacientes/:id', verificarToken, async (req, res) => {
     try {
         var {id} = req.params
         // Obtener todos los pacientes. Puedes decidir qué campos excluir en la consulta.
-        const pacientes = await User.findOne({_id:id}, '-password'); // Excluye la contraseña en el resultado
+        const pacientes = await Paciente.findOne({_id:id}); // Excluye la contraseña en el resultado
         res.json(pacientes);
     } catch (error) {
         res.status(500).json({mensaje:'Error en el servidor.'});

@@ -2,7 +2,7 @@ const Rol = require("../models/Rol");
 const User = require("../models/Usuarios");
 async function crearUsuariosIniciales() {
     try {
-        const adminExists = await User.findOne({ username: '0000000-1' });
+    const adminExists = await User.findOne({ username: '0000000-1' });
         const doctorExist = await User.findOne({ username: '0000000-2' });
         const nurseExists = await User.findOne({ username: '0000000-3' });
 

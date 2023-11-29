@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 const historialMedicoSchema = new mongoose.Schema({
   // En MongoDB, _id se genera automáticamente y puede usarse como PK
-  dui_paciente: {
+  id_paciente: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Paciente',
     required: true // FK a la colección de Pacientes
