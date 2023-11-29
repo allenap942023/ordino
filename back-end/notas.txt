@@ -1,0 +1,3 @@
+Como puedo implementar un endpoint para medico y enfermero?
+    o hago sus inicios de sesion por separado?
+
