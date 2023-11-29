@@ -49,6 +49,16 @@ const pacienteSchema = new mongoose.Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref: "ContactoEmergencia",
   },
+
+  citasMedica: [{
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "CitaMedica",
+  }],
+
+  historialMedico: [{
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "HistorialMedico",
+  }],
   // ... más campos según sea necesario ...
 });
 
