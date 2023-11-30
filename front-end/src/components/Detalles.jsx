@@ -89,7 +89,7 @@ const Detalles = () => {
   {/* Fecha de Nacimiento */}
   <div className="mb-4">
     <input className="w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
-           type="date" 
+           type="text" 
            name="fecha_nacimiento" 
            onChange={handleChange} 
            value={formData.fecha_nacimiento} />
