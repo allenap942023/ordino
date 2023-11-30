@@ -1,6 +1,4 @@
-
 import React, { useState } from 'react';
-const URLBackEnd = "http://localhost:3000/api";
 
 const Detalles = () => {
   const [formData, setFormData] = useState({
@@ -22,12 +20,13 @@ const Detalles = () => {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    if (name.startsWith("contactoEmergencia.")) {
+    if (name.includes('contactoEmergencia.')) {
+      const field = name.split('.')[1];
       setFormData({
         ...formData,
         contactoEmergencia: {
           ...formData.contactoEmergencia,
-          [name.split('.')[1]]: value
+          [field]: value
         }
       });
     } else {
@@ -44,48 +43,38 @@ const Detalles = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="p-4 max-w-4xl mx-auto bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
-      <h2 className="text-xl font-semibold mb-6">Información Personal</h2>
+    <form onSubmit={handleSubmit} className="p-6 max-w-lg mx-auto bg-white rounded shadow-md">
+      <h2 className="text-lg font-semibold mb-5">Información Personal</h2>
+      {/* Campos de información personal */}
+      {/* Repetir el siguiente bloque para cada campo, cambiando el name y placeholder según corresponda */}
       <div className="mb-4">
-        {/* Nombre Completo */}
-        <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="nombreCompleto">
-          Nombre Completo
-        </label>
-        <input className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" 
-               id="nombreCompleto" 
+        <input className="w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
                type="text" 
-               name="nombreCompleto"
+               name="nombreCompleto" 
                placeholder="Nombre Completo" 
                onChange={handleChange} 
                value={formData.nombreCompleto} />
       </div>
 
-      {/* Repite este bloque para los campos restantes: fechaNacimiento, dui, sexo, direccion, telefono, email */}
+      {/* Campos para el contacto de emergencia */}
+      <h2 className="text-lg font-semibold mb-5 mt-6">Contacto de Emergencia</h2>
+      {/* Repetir el bloque de input para los campos del contacto de emergencia */}
 
-      <h2 className="text-xl font-semibold mb-6 mt-8">Contacto de Emergencia</h2>
-      {/* Campos para el contacto de emergencia (nombreCompleto, telefono, direccion, email) */}
-
-      <h2 className="text-xl font-semibold mb-6 mt-8">Antecedentes Personales</h2>
+      {/* Campo de antecedentes personales */}
+      <h2 className="text-lg font-semibold mb-5 mt-6">Antecedentes Personales</h2>
       <div className="mb-4">
-        <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="antecedentesPersonales">
-          Antecedentes Personales
-        </label>
-        <textarea className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" 
-                  id="antecedentesPersonales" 
+        <textarea className="w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
                   name="antecedentesPersonales"
-                  placeholder="Antecedentes Personales" 
-                  onChange={handleChange} 
+                  placeholder="Antecedentes Personales"
+                  onChange={handleChange}
                   value={formData.antecedentesPersonales}></textarea>
       </div>
 
-      <div className="flex items-center justify-between">
-        <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
-          Enviar
-        </button>
-      </div>
+      <button type="submit" className="w-full bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+        Enviar
+      </button>
     </form>
   );
 };
 
 export default Detalles;
-

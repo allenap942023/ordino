@@ -27,6 +27,7 @@ export const AppRouter = () => {
           <Route path="/dashboard/medical-history/:id" element={<HistorialMedico />} />
           <Route path="/dashboard/history" element={<Historial />} />
           <Route path="/dashboard/profile" element={<Perfil />} />
+          <Route path="/dashboard/detalles" element={<Detalles />} />
       </Routes>
       <Footer /> 
     </>
