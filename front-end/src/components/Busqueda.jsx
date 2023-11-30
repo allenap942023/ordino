@@ -88,8 +88,8 @@ const NuevoPaciente = () => {
               </h2>
 
               <div className="mt-5">
-                <div className="rounded-xl overflow-hidden shadow-md border border-slate-800">
-                  <table className="w-full shadow-md rounded-md ">
+                <div className="rounded-xl overflow-hidden overflow-x-auto shadow-md border border-slate-800">
+                  <table className="w-full shadow-md rounded-md overflow-x-auto">
                     <thead className="bg-slate-800 text-neutral-100 text-xs">
                       <tr>
                         <th className="py-3 px-6 text-left lg:w-1/4 border-r-2 border-r-slate-700">
