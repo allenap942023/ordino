@@ -77,12 +77,12 @@ const NuevaConsulta = () => {
       {/* Contenido principal del Dashboard */}
       <section
         id="Principal"
-        className="flex-1 flex flex-col overflow-hidden justify-center items-center bg-white text-black rounded-lg sm:ml-[180px]"
+        className="flex-1 flex flex-col overflow-hidden justify-center items-center bg-slate-100 text-black rounded-lg sm:ml-[180px]"
       >
         <DatosPaciente id_paciente={id} />
-        <div className="grid snap-none grid-cols-1 gap-6 md:grid-cols-1 pb-4  w-full">
+        <div className="grid snap-none grid-cols-1 gap-6 md:grid-cols-1  w-full">
           <div
-            className="flex flex-col items-center pa-8 space-y-6 bg-white text-black shadow-lg rounded-lg p-4 transition-transform transform-gpu hover:shadow-2xl"
+            className="flex flex-col items-center pa-8 space-y-6  text-black shadow-lg rounded-lg p-4 transition-transform transform-gpu hover:shadow-2x "
             style={
               {
                 // Color del borde
@@ -101,8 +101,8 @@ const NuevaConsulta = () => {
               className="space-y-6 items-center justify-center"
             >
               <div className="grid snap-none grid-cols-2 md:grid-cols-3 w-full gap-5">
-                <div className="col-span-2 w-full">
-                  <div className="grid snap-none grid-cols-2 text-xs p-3 shadow-md rounded-2xl w-full">
+                <div className="col-span-2 w-full ">
+                  <div className="grid snap-none grid-cols-2 text-xs p-3 shadow-md rounded-2xl w-full bg-white">
                     <div className="col-span-2 text-center font-bold my-2">
                       Historial de enfermedad actual:{" "}
                     </div>
@@ -121,7 +121,7 @@ const NuevaConsulta = () => {
                 </div>
 
                 <div className="col-span-1">
-                  <div className="grid snap-none grid-cols-2 text-xs max-w-[300px] p-3 shadow-md rounded-2xl col-span-1 gap-2">
+                  <div className="grid snap-none grid-cols-2 text-xs max-w-[300px] p-3 shadow-md rounded-2xl col-span-1 gap-2 bg-white">
                     <div className="col-span-2 text-center font-bold my-2">
                       Exploración física:{" "}
                     </div>
@@ -180,7 +180,7 @@ const NuevaConsulta = () => {
                   </div>
                 </div>
                 <div className="col-span-3">
-                  <div className="grid snap-none grid-cols-2 text-xs p-3 shadow-md rounded-2xl w-full gap-3">
+                  <div className="grid snap-none grid-cols-2 text-xs p-3 shadow-md rounded-2xl w-full gap-3 bg-white">
                     <div className="col-span-2 text-center font-bold my-2">
                       Plan de tratamiento:{" "}
                     </div>

@@ -29,7 +29,7 @@ const DatosPaciente = (props) => {
   };
 
   return (
-    <div className="flex justify-evenly shadow-md p-4 rounded-3xl m-3 min-w-[500px] lg:min-w-[900px] font-inter">
+    <div className="flex justify-evenly shadow-md p-4 rounded-3xl m-3 min-w-[500px] lg:min-w-[900px] font-inter bg-white">
       <div className="lg:w-[300px] flex justify-start">
         <img
           src=""
