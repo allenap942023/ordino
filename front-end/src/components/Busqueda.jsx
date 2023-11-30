@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import Sidebar from "../components/Sidebar";
 import { FaNotesMedical } from "react-icons/fa";
 import axios from "axios";
@@ -13,11 +13,18 @@ const NuevoPaciente = () => {
   const handleOptionClick = (option) => {
     setSelectedOption(option);
   };
-
+  useEffect(() => {
+    obtenerPacientes()
+  }, [])
   const obtenerPacientes = (event) => {
-    event.preventDefault();
+    
     var token = window.localStorage.getItem("token");
-    var nombre = event.target.nombre.value;
+    var nombre = ""
+    if(event){
+      event.preventDefault();
+      nombre = event.target.nombre.value;
+    }
+    
     axios
       .get(`${URLBackEnd}/pacientes?nombre=${nombre}`, {
         headers: {
