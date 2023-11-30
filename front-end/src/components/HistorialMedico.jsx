@@ -4,6 +4,7 @@ import Sidebar from "../components/Sidebar";
 import { FaNotesMedical } from "react-icons/fa";
 import axios from "axios";
 import moment from "moment";
+import { FaExternalLinkAlt } from "react-icons/fa";
 
 const HistorialMedico = () => {
   let { id } = useParams();
@@ -57,18 +58,18 @@ const HistorialMedico = () => {
       {/* Contenido principal del Dashboard */}
       <section
         id="Principal"
-        className="flex-1 flex flex-col overflow-hidden items-start rounded-lg md:ml-72 md:mr-4 md:mt-8 font-inter"
+        className="flex-1 flex flex-col overflow-auto items-start rounded-lg sm:ml-[180px] font-inter"
       >
         <div className="flex items-center mx-auto w-5/6 mt-10">
           <FaNotesMedical className="mr-2" size={20} />{" "}
           {/* Icono de expedientes médicos */}
-          <p className="text-lg text-sm">
+          <p className=" text-sm">
             Listado de consultas:
           </p>
         </div>
 
         <div className="flex flex-col items-center mx-auto w-5/6">
-          <form className="w-full mx-auto flex flex-row" onSubmit={obtenerHistorial}>
+          <form className="w-full mx-auto flex flex-row items-center" onSubmit={obtenerHistorial}>
             <div className="w-1/2 mx-auto flex items-center bg-white rounded-xl border border-gray-300 p-2 m-5">
               <div className="mr-4">
 
@@ -93,9 +94,9 @@ const HistorialMedico = () => {
                 className="flex-1 px-2 text-xs outline-none bg-transparent"
               />
             </div>
-            <button type="submit" className="bg-blue-500 hover:bg-blue-600 text-white font-medium  px-3 rounded-md focus:ring-4 focus:ring-blue-300 focus:outline-none"> <svg
+            <button type="submit" className="bg-blue-500 hover:bg-blue-600 text-white w-[100px] h-[40px] flex items-center justify-center rounded-2xl"> <svg
               xmlns="http://www.w3.org/2000/svg"
-              className="h-4 w-4 text-gray-500"
+              className="h-4 w-4 text-white"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -115,9 +116,9 @@ const HistorialMedico = () => {
               </h2>
 
               <div className="mt-5">
-                <div className="rounded-xl overflow-hidden shadow-md border border-slate-800">
+                <div className="rounded-xl overflow-x-auto shadow-md border border-slate-800">
 
-                  <table className="w-full shadow-md rounded-md">
+                  <table className="w-full shadow-md rounded-md text-xs overflow-x-auto">
                     <thead className="bg-slate-800 text-neutral-100 text-xs">
 
                       <tr>
@@ -170,8 +171,9 @@ const HistorialMedico = () => {
                             <td className="py-4 px-6 lg:w-1/6 text-center">
                               <a
                               href={"/dashboard/consultation/"+id+"/"+item._id}
-                                className="bg-blue-800 text-white py-2 px-4 rounded-md focus:ring-4 focus:ring-blue-300 focus:outline-none transition duration-300"
+                                className="text-blue-500 py-2 px-4 rounded-md transition duration-300"
                               >
+                                <FaExternalLinkAlt className="mr-2"></FaExternalLinkAlt>
                                 Ver
                               </a>
                             </td>
