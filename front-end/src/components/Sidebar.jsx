@@ -8,6 +8,14 @@ import {
   FaHistory,
   FaSignOutAlt,
   FaBars,
+  FaWindowClose,
+  FaArrowDown,
+  FaArrowCircleDown,
+  FaLongArrowAltDown,
+  FaCartArrowDown,
+  FaRegArrowAltCircleDown,
+  FaExpandArrowsAlt,
+  FaPlus,
 } from "react-icons/fa";
 import { useMediaQuery } from "react-responsive";
 import axios from "axios";
@@ -67,13 +75,31 @@ const Sidebar = () => {
   };
   return (
     <nav
-      className={`h-full min-h-full fixed bg-white text-black shadow-sm transition-all duration-300 z-50 font-mono ${
-        menuOpen ? "w-[180px]" : "w-16"
-      } ${isTabletOrMobile ? "right-0 top-0 p-4" : ""}`}
+      className={` fixed  text-black shadow-md transition-all duration-300 z-50 font-mono ${
+        menuOpen
+          ? "w-[180px] h-full min-h-full "
+          : "w-[40px] h-[40px] rounded-full bg-white"
+      } 
+      ${!isTabletOrMobile?'bg-white':''}
+      ${isTabletOrMobile && menuOpen ? "w-full bg-[#ffffffe1]" : ""} 
+      ${
+        isTabletOrMobile && !menuOpen
+          ? "flex justify-center items-center m-2"
+          : ""
+      }`}
     >
       {isTabletOrMobile && (
         <button onClick={toggleMenu} className="text-black focus:outline-none">
-          {menuOpen ? <FaUser size={30} /> : <FaBars size={30} />}
+          {menuOpen ? (
+            <FaPlus
+              size={20}
+              className={"rotate-45 m-2"}
+            />
+          ) : (
+            <FaBars
+              size={15}
+            />
+          )}
         </button>
       )}
       {menuOpen && (
