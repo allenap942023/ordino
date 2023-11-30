@@ -20,19 +20,19 @@ const Footer = () => {
           {/* Agrega enlaces a tus perfiles de redes sociales */}
           <div className="flex justify-center items-center space-x-4">
             <a
-              href="#"
+              href="https://www.facebook.com/profile.php?id=61554161728620"
               className="text-4xl hover:text-blue-500 hover:scale-110 transition-transform duration-300" // Ajusta el tamaño de la fuente y la escala
             >
               <FaFacebook className="h-[30px]" />
             </a>
             <a
-              href="#"
+              href="https://www.instagram.com/ordino.oficial/"
               className="text-4xl hover:text-pink-500 hover:scale-110 transition-transform duration-300" // Ajusta el tamaño de la fuente y la escala
             >
               <FaInstagram className="h-[30px]" />
             </a>
             <a
-              href="#"
+              href="https://twitter.com/ordinooficial "
               className="text-4xl hover:text-blue-400 hover:scale-110 transition-transform duration-300" // Ajusta el tamaño de la fuente y la escala
             >
               <FaTwitter className="h-[30px]" />
