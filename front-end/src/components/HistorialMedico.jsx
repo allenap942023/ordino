@@ -4,7 +4,7 @@ import Sidebar from "../components/Sidebar";
 import { FaNotesMedical } from "react-icons/fa";
 import axios from "axios";
 import moment from "moment";
-
+import DatosPaciente from "./DatosPaciente";
 const HistorialMedico = () => {
   let { id } = useParams();
   const URLBackEnd = 'http://localhost:3000/api';
@@ -59,6 +59,7 @@ const HistorialMedico = () => {
         id="Principal"
         className="flex-1 flex flex-col overflow-hidden items-start rounded-lg md:ml-72 md:mr-4 md:mt-8 font-inter"
       >
+         <DatosPaciente id_paciente={id} />
         <div className="flex items-center mx-auto w-5/6 mt-10">
           <FaNotesMedical className="mr-2" size={20} />{" "}
           {/* Icono de expedientes médicos */}

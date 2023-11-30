@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
+import moment from "moment"
 const URLBackEnd = "http://localhost:3000/api";
 
 const DatosPaciente = (props) => {
@@ -40,8 +41,8 @@ const DatosPaciente = (props) => {
       <div className="grid grid-cols-2 lg:grid-cols-4">
         <span className="font-bold text-xs">Nombre paciente:</span>
         <span className="text-xs">{paciente.nombre}</span>
-        <span className="font-bold text-xs">Fecha de nacimiento:</span>
-        <span className="text-xs">{paciente.fecha_nacimiento}</span>
+        <span className="font-bold text-xs">Fecha de nacimiento: </span>
+        <span className="text-xs">{paciente && moment(paciente.fecha_nacimiento).format("DD/MM/YYYY")}</span>
         <span className="font-bold text-xs">Sexo:</span>
         <span className="text-xs">{paciente.sexo_paciente}</span>
         <span className="font-bold text-xs">Dui</span>

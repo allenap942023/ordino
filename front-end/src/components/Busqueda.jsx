@@ -96,16 +96,20 @@ const NuevoPaciente = () => {
                           Nombre completo
                         </th>
                         <th className="py-3 px-6 lg:w-1/4 text-center border-r-slate-700">
-                          Acción 1
+                          
                         </th>
                         <th className="py-3 px-6 lg:w-1/4 text-center">
-                          Acción 2
+                          
                         </th>
+                        <th className="py-3 px-6 lg:w-1/4 text-center">
+                          
+                          </th>
                       </tr>
                     </thead>
                     <tbody className="text-neutral-800">
                       {listaPacientes.map((paciente) => {
                         return (
+                          <>
                           <tr className="bg-white hover:bg-slate-100">
                             <td className="font- py-4 px-6 lg:w-1/4 text-xs border-r-2">
                               {paciente.nombre}
@@ -132,7 +136,20 @@ const NuevoPaciente = () => {
                                 Nueva consulta
                               </a>
                             </td>
+
+                            <td className="py-4 px-6 lg:w-1/4">
+                              <a
+                                href={
+                                  "/dashboard/patient/detalle/" + paciente._id
+                                }
+                                className="text-orange-500 hover:text-orange-500 py-2 px-4 rounded-md focus:ring-4 focus:ring-blue-300 focus:outline-none transition duration-300 flex text-xs items-center justify-center"
+                              >
+                                <FaPlus size={12} className="mr-2"></FaPlus>
+                                Ver Detalle
+                              </a>
+                            </td>
                           </tr>
+                          </>
                         );
                       })}
                     </tbody>

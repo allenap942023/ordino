@@ -1,6 +1,9 @@
-import React, { useState } from 'react';
+import  { useState ,useEffect} from 'react';
+import { useParams } from "react-router-dom";
+import axios from 'axios';
 
 const Detalles = () => {
+  const URLBackEnd = "http://localhost:3000/api";
   const [formData, setFormData] = useState({
     nombre: 'Juan Pérez',
     fecha_nacimiento: '1990-01-01',
@@ -17,6 +20,7 @@ const Detalles = () => {
     },
     antecedentes: 'Ninguno'
   });
+  let { id } = useParams();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -45,10 +49,10 @@ const Detalles = () => {
   
   useEffect(() => {
       obtenerInfoUsuario();
-  }, [paciente]);
+  }, []);
 
   const obtenerInfoUsuario = () => {
-      var id = props.id_paciente;
+      
       var token = window.localStorage.getItem("token");
 
       axios
@@ -167,7 +171,7 @@ const Detalles = () => {
                   name="nombre_contacto"
                   placeholder="nombre_contacto"
                   onChange={handleChange}
-                  value={formData.contacto_emergencia.nombre_contacto}></textarea>
+                  value={formData.contacto_emergencia &&formData.contacto_emergencia.nombre_contacto}></textarea>
       </div>
 
       <div className="mb-4">
@@ -175,7 +179,7 @@ const Detalles = () => {
                   name="numero_telefonico_contacto"
                   placeholder="Antecedentes numero_telefonico_contacto"
                   onChange={handleChange}
-                  value={formData.contacto_emergencia.numero_telefonico_contacto}></textarea>
+                  value={formData.contacto_emergencia&& formData.contacto_emergencia.numero_telefonico_contacto}></textarea>
       </div>
 
       <div className="mb-4">
@@ -183,7 +187,7 @@ const Detalles = () => {
                   name="direccion_contacto"
                   placeholder="direccion_contacto Personales"
                   onChange={handleChange}
-                  value={formData.contacto_emergencia.direccion_contacto}></textarea>
+                  value={formData.contacto_emergencia&&formData.contacto_emergencia.direccion_contacto}></textarea>
       </div>
 
 
@@ -192,7 +196,7 @@ const Detalles = () => {
                   name="correo_contacto"
                   placeholder="correo_contacto Personales"
                   onChange={handleChange}
-                  value={formData.contacto_emergencia.correo_contacto}></textarea>
+                  value={formData.contacto_emergencia&& formData.contacto_emergencia.correo_contacto}></textarea>
       </div>
 
       <button type="submit" className="w-full bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">

@@ -8,6 +8,7 @@ const jwt = require('jsonwebtoken');
 
 const Paciente = require('../models/Paciente');
 const CitaMedica = require("../models/CitaMedica");
+const ContactoEmergencia = require("../models/ContactoEmergencia");
 
 const JWT_SECRET = process.env.JWT_SECRET || '12345';
 
@@ -84,7 +85,9 @@ router.get('/pacientes/:id', verificarToken, async (req, res) => {
     try {
         var { id } = req.params
         // Obtener todos los pacientes. Puedes decidir qué campos excluir en la consulta.
-        const pacientes = await Paciente.findOne({ _id: id }); // Excluye la contraseña en el resultado
+        const pacientes = await Paciente.findOne({ _id: id }).populate({
+            path: 'contacto_emergencia',model:ContactoEmergencia}
+            ).exec(); // Excluye la contraseña en el resultado
         res.json(pacientes);
     } catch (error) {
         res.status(500).json({ mensaje: 'Error en el servidor.' });
