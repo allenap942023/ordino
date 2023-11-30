@@ -6,7 +6,7 @@ const DatosPaciente = (props) => {
   const [paciente, setPaciente] = useState({});
   useEffect(() => {
     obtenerInfoUsuario();
-  }, [paciente]);
+  }, []);
 
   const obtenerInfoUsuario = () => {
     var id = props.id_paciente;

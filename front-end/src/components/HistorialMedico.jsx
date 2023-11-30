@@ -156,10 +156,10 @@ const HistorialMedico = () => {
                               {index+1}
                             </td>
                             <td className="py-4 px-6 lg:w-1/12 text-center border-r-2">
-                              {moment(item.fecha_cita).day()}
+                              {moment(item.fecha_cita).format('DD')}
                             </td>
                             <td className="py-4 px-6 lg:w-1/12 text-center border-r-2">
-                              {moment(item.fecha_cita).month()}
+                              {moment(item.fecha_cita).format('MM')}
                             </td>
                             <td className="py-4 px-6 lg:w-1/12 text-center border-r-2">
                               {moment(item.fecha_cita).year()}

@@ -137,7 +137,7 @@ router.post('/pacientes/:id/nueva_cita', verificarToken, async (req, res) => {
             ritmo_cardiaco, temperatura, oxigeno, sintomas,
             diagnostico, tratamiento, notas
         });
-        // console.log
+        console.log(fecha_cita);
         let citaGuardada;
         citaGuardada = await nuevaCitaMedica.save();
         if (!citaGuardada) {
@@ -146,7 +146,7 @@ router.post('/pacientes/:id/nueva_cita', verificarToken, async (req, res) => {
         // res.json({ mensaje: "CitaMedica guardado correctamente!" });
 
         paciente.citas.push(citaGuardada._id);
-
+        console.log(citaGuardada);
         pacienteActualizado = await paciente.save()
         if (!pacienteActualizado) {
             res.status(500).json({ mensaje: "Error al crear el objeto:", err });

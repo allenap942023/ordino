@@ -38,7 +38,7 @@ const NuevaConsulta = () => {
     var data = {
       id_paciente: id,
       id_medico: idUser,
-      fecha_cita: formValues["Fecha Cita"],
+      fecha_cita: new Date(),
       fecha_proxima_cita: formValues["Fecha Próxima Cita"],
       motivo: formValues["Motivo"],
       presion_arterial: formValues["Presión Arterial"],
