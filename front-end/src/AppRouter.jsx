@@ -23,6 +23,7 @@ export const AppRouter = () => {
           <Route path="/dashboard/new-patient" element={<NuevoPaciente />} />
           <Route path="/dashboard/search" element={<Busqueda />} />
           <Route path="/dashboard/new-consultation/:id" element={<NuevaConsulta />} />
+          <Route path="/dashboard/consultation/:id/:idConsulta" element={<NuevaConsulta />} />
           <Route path="/dashboard/medical-history/:id" element={<HistorialMedico />} />
           <Route path="/dashboard/history" element={<Historial />} />
           <Route path="/dashboard/profile" element={<Perfil />} />

@@ -139,7 +139,7 @@ const Sidebar = () => {
                     <span className="">Búsqueda</span>
                   </Link>
                 </li>
-                <li className="hover:bg-gray-200 rounded-lg transition duration-300 p-2 cursor-pointer min-w-[150px]">
+                {/* <li className="hover:bg-gray-200 rounded-lg transition duration-300 p-2 cursor-pointer min-w-[150px]">
                   <Link
                     to="/dashboard/new-consultation"
                     className="flex items-center space-x-2"
@@ -165,7 +165,7 @@ const Sidebar = () => {
                     <FaHistory size={15} />
                     <span className="">Historial</span>
                   </Link>
-                </li>
+                </li> */}
                 <li className="hover:bg-gray-200 rounded-lg transition duration-300 p-2 cursor-pointer min-w-[150px]">
                   <Link
                     to="/dashboard/profile"

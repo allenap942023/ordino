@@ -168,11 +168,12 @@ const HistorialMedico = () => {
                               {item.diagnostico}
                             </td>
                             <td className="py-4 px-6 lg:w-1/6 text-center">
-                              <button
+                              <a
+                              href={"/dashboard/consultation/"+id+"/"+item._id}
                                 className="bg-blue-800 text-white py-2 px-4 rounded-md focus:ring-4 focus:ring-blue-300 focus:outline-none transition duration-300"
                               >
-                                Ingresar
-                              </button>
+                                Ver
+                              </a>
                             </td>
                           </tr>
                         </>

@@ -164,6 +164,17 @@ router.put('/pacientes/:id', verificarToken, /* controlador para actualizar un u
 // Eliminar usuario (DELETE)
 router.delete('/pacientes/:id', verificarToken, /* controlador para eliminar un usuario */);
 
-
+// Leer un usuario específico (GET)
+router.get('/citamedica/:id', verificarToken, async (req, res) => {
+    try {
+        var { id } = req.params
+        console.log("id"+id)
+        // Obtener todos los pacientes. Puedes decidir qué campos excluir en la consulta.
+        const pacientes = await CitaMedica.findOne({ _id: id }); // Excluye la contraseña en el resultado
+        res.json(pacientes);
+    } catch (error) {
+        res.status(500).json({ mensaje: 'Error en el servidor.' });
+    }
+});
 
 module.exports = router;
