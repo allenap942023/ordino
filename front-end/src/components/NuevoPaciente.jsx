@@ -83,7 +83,7 @@ const NuevoPaciente = () => {
 
       {/* Contenido principal del Dashboard */}
       <form onSubmit={NuevoPaciente}>
-      <section id="Principal" className="flex-1 flex flex-col overflow-hidden justify-center items-center bg-white text-black shadow-2xl rounded-lg md:ml-72 md:mr-4 md:mt-8">
+      <section id="Principal" className="flex-1 flex flex-col overflow-hidden justify-center items-center bg-slate-50 text-black rounded-lg md:ml-72 md:mr-4 md:mt-8 font-inter text-xs">
         <div className="grid grid-cols-1 gap-6 md:grid-cols-1">
           {/*           Formulario 1: Informacion del paciente */}
           <div className='flex flex-col items-center space-y-6 bg-white text-black shadow-lg rounded-lg p-4 transition-transform transform-gpu hover:shadow-2xl'
@@ -91,13 +91,13 @@ const NuevoPaciente = () => {
               border: "2px solid #1550ab", // Color del borde
             }}
           >
-            <label htmlFor="emergency_full_name" className="text-lg font-bold text-gray-700">Contacto de emergencia:</label>
+            <label htmlFor="emergency_full_name" className="font-bold text-gray-700">Contacto de emergencia:</label>
 
             <div className="space-y-6 grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 items-center justify-center">
               {/* Contenido del formulario */}
 
               <div className="grid grid-cols-1 justify-center items-center text-center">
-                <label htmlFor="profile_picture" className="text-lg font-medium text-gray-700">
+                <label htmlFor="profile_picture" className=" text-gray-700">
                   Foto de Perfil:
                 </label>
                 <div className="flex justify-center items-center">
@@ -112,7 +112,7 @@ const NuevoPaciente = () => {
 
               <div>
                 <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2">
-                  <label htmlFor="full_name" className="text-lg font-medium text-gray-700">Nombre Completo:</label>
+                  <label htmlFor="full_name" className=" text-gray-700">Nombre Completo:</label>
                   <input
                     type="text"
                     id="full_name"
@@ -121,7 +121,7 @@ const NuevoPaciente = () => {
                   />
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2">
-                  <label htmlFor="date_of_birth" className="text-lg font-medium text-gray-700">Fecha de nacimiento:</label>
+                  <label htmlFor="date_of_birth" className=" text-gray-700">Fecha de nacimiento:</label>
                   <input
                     type="date"
                     id="date_of_birth"
@@ -130,7 +130,7 @@ const NuevoPaciente = () => {
                   />
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2">
-                  <label htmlFor="id" className="text-lg font-medium text-gray-700">DUI:</label>
+                  <label htmlFor="id" className=" text-gray-700">DUI:</label>
                   <input
                     type="text"
                     id="id"
@@ -139,7 +139,7 @@ const NuevoPaciente = () => {
                   />
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2">
-                  <label htmlFor="gender" className="text-lg font-medium text-gray-700">Sexo:</label>
+                  <label htmlFor="gender" className=" text-gray-700">Sexo:</label>
                   <select
                     id="gender"
                     name="gender"
@@ -151,7 +151,7 @@ const NuevoPaciente = () => {
                   </select>
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2">
-                  <label htmlFor="address" className="text-lg font-medium text-gray-700">Dirección:</label>
+                  <label htmlFor="address" className=" text-gray-700">Dirección:</label>
                   <input
                     type="text"
                     id="address"
@@ -160,7 +160,7 @@ const NuevoPaciente = () => {
                   />
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2">
-                  <label htmlFor="phone_number" className="text-lg font-medium text-gray-700">Número de teléfono:</label>
+                  <label htmlFor="phone_number" className=" text-gray-700">Número de teléfono:</label>
                   <input
                     type="tel"
                     id="phone_number"
@@ -169,7 +169,7 @@ const NuevoPaciente = () => {
                   />
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2">
-                  <label htmlFor="email" className="text-lg font-medium text-gray-700">Correo electrónico:</label>
+                  <label htmlFor="email" className=" text-gray-700">Correo electrónico:</label>
                   <input
                     type="email"
                     id="email"
@@ -188,7 +188,7 @@ const NuevoPaciente = () => {
             style={{
               border: "2px solid #1550ab", // Color del borde
             }}>
-            <label htmlFor="emergency_full_name" className="text-lg font-bold text-gray-700">Contacto de emergencia:</label>
+            <label htmlFor="emergency_full_name" className="font-bold text-gray-700">Contacto de emergencia:</label>
 
             <div
               className="space-y-6 p-4 "
@@ -197,7 +197,7 @@ const NuevoPaciente = () => {
               {/* Columna 1 */}
               <div id="columna1" className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2">
                 <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2">
-                  <label htmlFor="emergency_full_name" className="text-lg font-medium text-gray-700">Nombre Completo:</label>
+                  <label htmlFor="emergency_full_name" className=" text-gray-700">Nombre Completo:</label>
                   <input
                     type="text"
                     id="emergency_full_name"
@@ -206,7 +206,7 @@ const NuevoPaciente = () => {
                   />
                 </div>
                 <div className="lg:ml-4 grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2">
-                  <label htmlFor="emergency_phone_number" className="text-lg font-medium text-gray-700">Número de teléfono:</label>
+                  <label htmlFor="emergency_phone_number" className=" text-gray-700">Número de teléfono:</label>
                   <input
                     type="tel"
                     id="emergency_phone_number"
@@ -219,7 +219,7 @@ const NuevoPaciente = () => {
               {/* Columna 2 */}
               <div id="columna2" className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2">
                 <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2">
-                  <label htmlFor="emergency_address" className="text-lg font-medium text-gray-700">Dirección:</label>
+                  <label htmlFor="emergency_address" className=" text-gray-700">Dirección:</label>
                   <input
                     type="text"
                     id="emergency_address"
@@ -228,7 +228,7 @@ const NuevoPaciente = () => {
                   />
                 </div>
                 <div className="lg:ml-4 grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2">
-                  <label htmlFor="emergency_email" className="text-lg font-medium text-gray-700">Correo electrónico:</label>
+                  <label htmlFor="emergency_email" className=" text-gray-700">Correo electrónico:</label>
                   <input
                     type="email"
                     id="emergency_email"
@@ -252,7 +252,7 @@ const NuevoPaciente = () => {
 
 
             <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 gap-4">
-              <label htmlFor="personal_history" className="text-lg font-medium text-gray-700">Antecedentes personales:</label>
+              <label htmlFor="personal_history" className=" text-gray-700">Antecedentes personales:</label>
               <textarea
                 id="personal_history"
                 name="personal_history"
@@ -264,10 +264,10 @@ const NuevoPaciente = () => {
 
 
           <div className="flex items-center space-x-4 lg:mb-16">
-            <p className="text-gray-900 font-medium" >¿Todo listo? Entonces clickea en:</p>
+            <p className="text-gray-900 " >¿Todo listo? Entonces clickea en:</p>
             <button
               type="submit"
-              className="bg-blue-500 hover:bg-blue-600 text-white font-medium py-2 px-4 rounded-md focus:ring-4 focus:ring-blue-300 focus:outline-none"
+              className="bg-blue-500 hover:bg-blue-600 text-white  py-2 px-4 rounded-md focus:ring-4 focus:ring-blue-300 focus:outline-none"
             >
               Guardar
             </button>
