@@ -109,7 +109,8 @@ router.get('/pacientes/:id/historial', verificarToken, async (req, res) => {
                     $lte: fechaFin,
                 }
             },
-             select: '_id fecha_cita diagnostico', model: CitaMedica
+             select: '_id fecha_cita diagnostico', model: CitaMedica,
+             sort: { 'fecha_cita': 0 }
         }).exec(); // Excluye la contraseña en el resultado
         res.json(pacientes.citas);
     } catch (error) {
