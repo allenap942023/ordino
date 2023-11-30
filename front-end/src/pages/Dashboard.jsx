@@ -16,7 +16,7 @@ const Dashboard = () => {
       <Sidebar onOptionClick={handleOptionClick} />
 
       {/* Contenido principal del Dashboard */}
-      <div id="Principal" className="flex-1 flex flex-col overflow-hidden bg-slate-100"> {/* Añadí md: para hacer las clases responsivas */}        {/* Renderiza el componente correspondiente según la opción seleccionada */}
+      <div id="Principal" className="flex-1 flex flex-col overflow-hidden bg-slate-50"> {/* Añadí md: para hacer las clases responsivas */}        {/* Renderiza el componente correspondiente según la opción seleccionada */}
         
       </div>
     </div>

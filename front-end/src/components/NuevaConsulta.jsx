@@ -77,7 +77,7 @@ const NuevaConsulta = () => {
       {/* Contenido principal del Dashboard */}
       <section
         id="Principal"
-        className="flex-1 flex flex-col overflow-hidden justify-center items-center bg-slate-100 text-black rounded-lg sm:ml-[180px]"
+        className="flex-1 flex flex-col overflow-hidden justify-center items-center bg-slate-50 text-black rounded-lg sm:ml-[180px]"
       >
         <DatosPaciente id_paciente={id} />
         <div className="grid snap-none grid-cols-1 gap-6 md:grid-cols-1  w-full">
