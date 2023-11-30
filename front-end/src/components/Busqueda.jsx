@@ -43,7 +43,7 @@ const NuevoPaciente = () => {
       {/* Contenido principal del Dashboard */}
       <section
         id="Principal"
-        className="flex-1 flex flex-col overflow-hidden items-start rounded-lg md:ml-72 md:mr-4 md:mt-8 font-inter"
+        className="flex-1 flex flex-col overflow-hidden items-start rounded-lg sm:ml-[180px] font-inter"
       >
         <div className="flex items-center mx-auto w-5/6 mt-10">
           <FaNotesMedical className="mr-2" size={20} />{" "}
