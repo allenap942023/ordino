@@ -96,8 +96,21 @@ router.get('/pacientes/:id', verificarToken, async (req, res) => {
 router.get('/pacientes/:id/historial', verificarToken, async (req, res) => {
     try {
         var { id } = req.params
+        var { fechaInicio, fechaFin } = req.query
+        console.log(req.query);
         // Obtener todos los pacientes. Puedes decidir qué campos excluir en la consulta.
-        const pacientes = await Paciente.findOne({ _id: id }).populate({ path: 'citas', select: '_id fecha_cita', model: CitaMedica }).exec(); // Excluye la contraseña en el resultado
+        const pacientes = await Paciente.findOne({
+            _id: id,
+        }).populate({
+            path: 'citas', 
+            match: {
+                'fecha_cita': {
+                    $gte: fechaInicio,
+                    $lte: fechaFin,
+                }
+            },
+             select: '_id fecha_cita diagnostico', model: CitaMedica
+        }).exec(); // Excluye la contraseña en el resultado
         res.json(pacientes.citas);
     } catch (error) {
         res.status(500).json({ mensaje: 'Error en el servidor.', error: error });
@@ -109,7 +122,7 @@ router.get('/pacientes/:id/historial', verificarToken, async (req, res) => {
 router.post('/pacientes/:id/nueva_cita', verificarToken, async (req, res) => {
     try {
         var { id } = req.params;
-      
+
         var { id_medico, fecha_cita,
             fecha_proxima_cita, motivo, presion_arterial,
             ritmo_cardiaco, temperatura, oxigeno, sintomas,
@@ -118,7 +131,7 @@ router.post('/pacientes/:id/nueva_cita', verificarToken, async (req, res) => {
         const paciente = await Paciente.findOne({ _id: id }); // Excluye la contraseña en el resultado
 
         const nuevaCitaMedica = new CitaMedica({
-            id_paciente:id, id_medico, fecha_cita,
+            id_paciente: id, id_medico, fecha_cita,
             fecha_proxima_cita, motivo, presion_arterial,
             ritmo_cardiaco, temperatura, oxigeno, sintomas,
             diagnostico, tratamiento, notas
@@ -133,14 +146,14 @@ router.post('/pacientes/:id/nueva_cita', verificarToken, async (req, res) => {
 
         paciente.citas.push(citaGuardada._id);
 
-        pacienteActualizado = await  paciente.save()
+        pacienteActualizado = await paciente.save()
         if (!pacienteActualizado) {
             res.status(500).json({ mensaje: "Error al crear el objeto:", err });
         }
         res.json({ mensaje: "Paciente actualizado correctamente!" });
 
     } catch (error) {
-        res.status(500).json({ mensaje: 'Error en el servidor.',error:error });
+        res.status(500).json({ mensaje: 'Error en el servidor.', error: error });
     }
 });
 
