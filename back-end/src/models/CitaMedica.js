@@ -7,7 +7,7 @@ const citaMedicaSchema = new mongoose.Schema({
     ref: 'Paciente',
     required: true // FK a la colección de Pacientes
   },
-  dui_medico: {
+  id_medico: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Medico',
     required: true // FK a la colección de Medicos
@@ -56,11 +56,13 @@ const citaMedicaSchema = new mongoose.Schema({
     required: true,
     maxlength: 300 // VARCHAR(300)
   },
+  notas: {
+    type: String,
+    required: true,
+    maxlength: 300 // VARCHAR(300)
+  },
 
-  owner: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: "Paciente",
-  }
+ 
   // ... más campos según sea necesario ...
 });
 
