@@ -98,7 +98,7 @@ router.get('/pacientes/:id/historial', verificarToken, async (req, res) => {
         var { id } = req.params
         // Obtener todos los pacientes. Puedes decidir qué campos excluir en la consulta.
         const pacientes = await Paciente.findOne({ _id: id }).populate({ path: 'citas', select: '_id fecha_cita', model: CitaMedica }).exec(); // Excluye la contraseña en el resultado
-        res.json(pacientes);
+        res.json(pacientes.citas);
     } catch (error) {
         res.status(500).json({ mensaje: 'Error en el servidor.', error: error });
     }
@@ -129,9 +129,11 @@ router.post('/pacientes/:id/nueva_cita', verificarToken, async (req, res) => {
         if (!citaGuardada) {
             res.status(500).json({ mensaje: "Error al crear el objeto:", err });
         }
-        res.json({ mensaje: "CitaMedica guardado correctamente!" });
+        // res.json({ mensaje: "CitaMedica guardado correctamente!" });
 
-        pacienteActualizado = await paciente.citas.push(citaGuardada._id);
+        paciente.citas.push(citaGuardada._id);
+
+        pacienteActualizado = await  paciente.save()
         if (!pacienteActualizado) {
             res.status(500).json({ mensaje: "Error al crear el objeto:", err });
         }
