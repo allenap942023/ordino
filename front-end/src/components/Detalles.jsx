@@ -1,9 +1,15 @@
 import  { useState ,useEffect} from 'react';
 import { useParams } from "react-router-dom";
 import axios from 'axios';
+import Sidebar from './Sidebar';
 
 const Detalles = () => {
   const URLBackEnd = "http://localhost:3000/api";
+  const [selectedOption, setSelectedOption] = useState(null);
+  // Función para manejar el clic en las opciones del sidebar
+  const handleOptionClick = (option) => {
+    setSelectedOption(option);
+  };
   const [formData, setFormData] = useState({
     nombre: 'Juan Pérez',
     fecha_nacimiento: '1990-01-01',
@@ -72,6 +78,9 @@ const Detalles = () => {
   };
 
   return (
+    <>
+    <Sidebar onOptionClick={handleOptionClick} />
+
     <form onSubmit={handleSubmit} className="p-6 max-w-lg mx-auto bg-white rounded shadow-md">
       <h2 className="text-lg font-semibold mb-5">Información Personal</h2>
 
@@ -203,6 +212,7 @@ const Detalles = () => {
         Enviar
       </button>
     </form>
+    </>
   );
 };
 
