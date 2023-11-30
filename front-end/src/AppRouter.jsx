@@ -11,6 +11,7 @@ import NuevaConsulta from './components/NuevaConsulta'; // Importa el componente
 import HistorialMedico from './components/HistorialMedico'; // Importa el componente correspondiente
 import Historial from './components/Historial'; // Importa el componente correspondiente
 import Perfil from './components/Perfil'; // Importa el componente correspondiente
+import Detalles from './components/Detalles'; 
 
 export const AppRouter = () => {
   return (
